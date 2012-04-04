@@ -4,9 +4,13 @@
 vars = {
   # Use this googlecode_url variable only if there is an internal mirror for it.
   # If you do not know, use the full path while defining your new deps entry.
+  "default_src": "http://src.chromium.org/svn",
   "googlecode_url": "http://%s.googlecode.com/svn",
   "sourceforge_url": "http://%(repo)s.svn.sourceforge.net/svnroot/%(repo)s",
   "webkit_trunk": "http://svn.webkit.org/repository/webkit/trunk",
+  "webkit_git": "ssh://git@github.com/readium/Readium-WebKit.git",
+  "skia_include_git": "ssh://git@github.com/readium/Readium-skia-include.git",
+  "skia_src_git": "ssh://git@github.com/readium/Readium-skia-src.git",
   "nacl_trunk": "http://src.chromium.org/native_client/trunk",
   "webkit_revision": "124835",
   "chromium_git": "http://git.chromium.org/git",
@@ -69,19 +73,19 @@ deps = {
   # happen.  See lines mentioning "webkit_revision" for the real
   # WebKit checkout.
   "src/third_party/WebKit":
-    "/trunk/deps/third_party/WebKit@76115",
+    Var("webkit_git"),
 
   "src/third_party/icu":
-    "/trunk/deps/third_party/icu46@149334",
+    Var("default_src") + "/trunk/deps/third_party/icu46@149334",
 
   "src/third_party/libexif/sources":
-    "/trunk/deps/third_party/libexif/sources@146817",
+    Var("default_src") + "/trunk/deps/third_party/libexif/sources@146817",
 
   "src/third_party/hunspell":
-   "/trunk/deps/third_party/hunspell@149334",
+    Var("default_src") + "/trunk/deps/third_party/hunspell@149334",
 
   "src/third_party/hunspell_dictionaries":
-    "/trunk/deps/third_party/hunspell_dictionaries@149334",
+    Var("default_src") + "/trunk/deps/third_party/hunspell_dictionaries@149334",
 
   "src/third_party/safe_browsing/testing":
     (Var("googlecode_url") % "google-safe-browsing") + "/trunk/testing@110",
@@ -123,37 +127,37 @@ deps = {
     Var("sfntly_revision"),
 
   "src/third_party/skia/src":
-    (Var("googlecode_url") % "skia") + "/trunk/src@" + Var("skia_revision"),
+    Var("skia_src_git"),
 
   "src/third_party/skia/include":
-    (Var("googlecode_url") % "skia") + "/trunk/include@" + Var("skia_revision"),
+    Var("skia_include_git"),
 
-  "src/third_party/WebKit/LayoutTests":
-    Var("webkit_trunk") + "/LayoutTests@" + Var("webkit_revision"),
+  #"src/third_party/WebKit/LayoutTests":
+  #  Var("webkit_trunk") + "/LayoutTests@" + Var("webkit_revision"),
 
-  "src/third_party/WebKit/Source":
-    Var("webkit_trunk") + "/Source@" + Var("webkit_revision"),
+  #"src/third_party/WebKit/Source":
+  #  Var("webkit_trunk") + "/Source@" + Var("webkit_revision"),
 
-  "src/third_party/WebKit/Tools/DumpRenderTree":
-    Var("webkit_trunk") + "/Tools/DumpRenderTree@" + Var("webkit_revision"),
+  #"src/third_party/WebKit/Tools/DumpRenderTree":
+  #  Var("webkit_trunk") + "/Tools/DumpRenderTree@" + Var("webkit_revision"),
 
-  "src/third_party/WebKit/Tools/Scripts":
-    Var("webkit_trunk") + "/Tools/Scripts@" + Var("webkit_revision"),
+  #"src/third_party/WebKit/Tools/Scripts":
+  #  Var("webkit_trunk") + "/Tools/Scripts@" + Var("webkit_revision"),
 
-  "src/third_party/WebKit/Tools/TestWebKitAPI":
-    Var("webkit_trunk") + "/Tools/TestWebKitAPI@" + Var("webkit_revision"),
+  #"src/third_party/WebKit/Tools/TestWebKitAPI":
+  #  Var("webkit_trunk") + "/Tools/TestWebKitAPI@" + Var("webkit_revision"),
 
   "src/third_party/ots":
     (Var("googlecode_url") % "ots") + "/trunk@94",
 
   "src/tools/page_cycler/acid3":
-    "/trunk/deps/page_cycler/acid3@150075",
+    Var("default_src") + "/trunk/deps/page_cycler/acid3@150075",
 
   "src/chrome/test/data/perf/canvas_bench":
-    "/trunk/deps/canvas_bench@122605",
+    Var("default_src") + "/trunk/deps/canvas_bench@122605",
 
   "src/chrome/test/data/perf/frame_rate/content":
-    "/trunk/deps/frame_rate/content@93671",
+    Var("default_src") + "/trunk/deps/frame_rate/content@93671",
 
   "src/third_party/bidichecker":
     (Var("googlecode_url") % "bidichecker") + "/trunk/lib@4",
@@ -164,79 +168,79 @@ deps = {
   # When roll to another webgl conformance tests revision, please goto
   # chrome/test/gpu and run generate_webgl_conformance_test_list.py.
   "src/third_party/webgl_conformance":
-    "/trunk/deps/third_party/webgl/sdk/tests@148561",
+    Var("default_src") + "/trunk/deps/third_party/webgl/sdk/tests@148561",
 
   # We run these layout tests as UI tests. Since many of the buildbots that
   # run layout tests do NOT have access to the LayoutTest directory, we need
   # to map them here. In practice, these do not take up much space.
-  "src/content/test/data/layout_tests/LayoutTests/fast/events":
-    Var("webkit_trunk") + "/LayoutTests/fast/events@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/fast/js/resources":
-    Var("webkit_trunk") + "/LayoutTests/fast/js/resources@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/fast/workers":
-    Var("webkit_trunk") + "/LayoutTests/fast/workers@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/http/tests/resources":
-    Var("webkit_trunk") + "/LayoutTests/http/tests/resources@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/http/tests/workers":
-    Var("webkit_trunk") + "/LayoutTests/http/tests/workers@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/http/tests/xmlhttprequest":
-    Var("webkit_trunk") + "/LayoutTests/http/tests/xmlhttprequest@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/http/tests/websocket/tests":
-    Var("webkit_trunk") + "/LayoutTests/http/tests/websocket/tests@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/platform/chromium/fast/workers":
-    Var("webkit_trunk") + "/LayoutTests/platform/chromium/fast/workers@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/platform/chromium/fast/events":
-    Var("webkit_trunk") + "/LayoutTests/platform/chromium/fast/events@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/platform/chromium-win/fast/events":
-    Var("webkit_trunk") + "/LayoutTests/platform/chromium-win/fast/events@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/platform/chromium-win/fast/workers":
-    Var("webkit_trunk") + "/LayoutTests/platform/chromium-win/fast/workers@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/http/tests/appcache":
-    Var("webkit_trunk") + "/LayoutTests/http/tests/appcache@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/platform/chromium-win/http/tests/workers":
-    Var("webkit_trunk") + "/LayoutTests/platform/chromium-win/http/tests/workers@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/platform/chromium-win/storage/domstorage":
-    Var("webkit_trunk") + "/LayoutTests/platform/chromium-win/storage/domstorage@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/storage/domstorage":
-    Var("webkit_trunk") + "/LayoutTests/storage/domstorage@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/storage/indexeddb":
-    Var("webkit_trunk") + "/LayoutTests/storage/indexeddb@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/fast/filesystem/resources":
-    Var("webkit_trunk") + "/LayoutTests/fast/filesystem/resources@" +
-    Var("webkit_revision"),
-  "src/content/test/data/layout_tests/LayoutTests/media":
-    Var("webkit_trunk") + "/LayoutTests/media@" +
-    Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/fast/events":
+  #  Var("webkit_trunk") + "/LayoutTests/fast/events@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/fast/js/resources":
+  #  Var("webkit_trunk") + "/LayoutTests/fast/js/resources@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/fast/workers":
+  #  Var("webkit_trunk") + "/LayoutTests/fast/workers@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/http/tests/resources":
+  #  Var("webkit_trunk") + "/LayoutTests/http/tests/resources@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/http/tests/workers":
+  #  Var("webkit_trunk") + "/LayoutTests/http/tests/workers@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/http/tests/xmlhttprequest":
+  #  Var("webkit_trunk") + "/LayoutTests/http/tests/xmlhttprequest@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/http/tests/websocket/tests":
+  #  Var("webkit_trunk") + "/LayoutTests/http/tests/websocket/tests@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/platform/chromium/fast/workers":
+  #  Var("webkit_trunk") + "/LayoutTests/platform/chromium/fast/workers@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/platform/chromium/fast/events":
+  #  Var("webkit_trunk") + "/LayoutTests/platform/chromium/fast/events@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/platform/chromium-win/fast/events":
+  #  Var("webkit_trunk") + "/LayoutTests/platform/chromium-win/fast/events@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/platform/chromium-win/fast/workers":
+  #  Var("webkit_trunk") + "/LayoutTests/platform/chromium-win/fast/workers@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/http/tests/appcache":
+  #  Var("webkit_trunk") + "/LayoutTests/http/tests/appcache@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/platform/chromium-win/http/tests/workers":
+  #  Var("webkit_trunk") + "/LayoutTests/platform/chromium-win/http/tests/workers@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/platform/chromium-win/storage/domstorage":
+  #  Var("webkit_trunk") + "/LayoutTests/platform/chromium-win/storage/domstorage@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/storage/domstorage":
+  #  Var("webkit_trunk") + "/LayoutTests/storage/domstorage@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/storage/indexeddb":
+  #  Var("webkit_trunk") + "/LayoutTests/storage/indexeddb@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/fast/filesystem/resources":
+  #  Var("webkit_trunk") + "/LayoutTests/fast/filesystem/resources@" +
+  #  Var("webkit_revision"),
+  #"src/content/test/data/layout_tests/LayoutTests/media":
+  #  Var("webkit_trunk") + "/LayoutTests/media@" +
+  #  Var("webkit_revision"),
 
   "src/third_party/swig/Lib":
-    "/trunk/deps/third_party/swig/Lib@" + Var("swig_revision"),
+    Var("default_src") + "/trunk/deps/third_party/swig/Lib@" + Var("swig_revision"),
 
   # Make sure you update the two functional.DEPS and webdriver.DEPS too.
   "src/third_party/webdriver/pylib":
     (Var("googlecode_url") % "selenium") + "/trunk/py@16922",
 
   "src/third_party/libvpx":
-    "/trunk/deps/third_party/libvpx@" +
+    Var("default_src") + "/trunk/deps/third_party/libvpx@" +
     Var("libvpx_revision"),
 
   "src/third_party/ffmpeg":
-    "/trunk/deps/third_party/ffmpeg@" +
+    Var("default_src") + "/trunk/deps/third_party/ffmpeg@" +
     Var("ffmpeg_revision"),
 
   "src/third_party/libjingle/source":
@@ -244,19 +248,19 @@ deps = {
     Var("libjingle_revision"),
 
   "src/third_party/libsrtp":
-    "/trunk/deps/third_party/libsrtp@123853",
+    Var("default_src") + "/trunk/deps/third_party/libsrtp@123853",
 
   "src/third_party/speex":
-    "/trunk/deps/third_party/speex@149334",
+    Var("default_src") + "/trunk/deps/third_party/speex@149334",
 
   "src/third_party/yasm/source/patched-yasm":
-    "/trunk/deps/third_party/yasm/patched-yasm@134927",
+    Var("default_src") + "/trunk/deps/third_party/yasm/patched-yasm@134927",
 
   "src/third_party/libjpeg_turbo":
-    "/trunk/deps/third_party/libjpeg_turbo@149334",
+    Var("default_src") + "/trunk/deps/third_party/libjpeg_turbo@149334",
 
   "src/third_party/flac":
-    "/trunk/deps/third_party/flac@149334",
+    Var("default_src") + "/trunk/deps/third_party/flac@149334",
 
   "src/third_party/pyftpdlib/src":
     (Var("googlecode_url") % "pyftpdlib") + "/trunk@977",
@@ -299,10 +303,10 @@ deps = {
          Var("libphonenumber_revision"),
 
   "src/third_party/undoview":
-    "/trunk/deps/third_party/undoview@119694",
+    Var("default_src") + "/trunk/deps/third_party/undoview@119694",
 
   "src/tools/deps2git":
-    "/trunk/tools/deps2git@148781",
+    Var("default_src") + "/trunk/tools/deps2git@148781",
 
   "src/third_party/webpagereplay":
     (Var("googlecode_url") % "web-page-replay") + "/trunk@489",
@@ -312,34 +316,34 @@ deps = {
 deps_os = {
   "win": {
     "src/chrome/tools/test/reference_build/chrome_win":
-      "/trunk/deps/reference_builds/chrome_win@137747",
+      Var("default_src") + "/trunk/deps/reference_builds/chrome_win@137747",
 
     "src/third_party/cygwin":
-      "/trunk/deps/third_party/cygwin@133786",
+      Var("default_src") + "/trunk/deps/third_party/cygwin@133786",
 
     "src/third_party/python_26":
-      "/trunk/tools/third_party/python_26@89111",
+      Var("default_src") + "/trunk/tools/third_party/python_26@89111",
 
     "src/third_party/psyco_win32":
-      "/trunk/deps/third_party/psyco_win32@79861",
+      Var("default_src") + "/trunk/deps/third_party/psyco_win32@79861",
 
     "src/third_party/bison":
-      "/trunk/deps/third_party/bison@147303",
+      Var("default_src") + "/trunk/deps/third_party/bison@147303",
 
     "src/third_party/gperf":
-      "/trunk/deps/third_party/gperf@147304",
+      Var("default_src") + "/trunk/deps/third_party/gperf@147304",
 
     "src/third_party/perl":
-      "/trunk/deps/third_party/perl@147900",
+      Var("default_src") + "/trunk/deps/third_party/perl@147900",
 
     "src/third_party/lighttpd":
-      "/trunk/deps/third_party/lighttpd@33727",
+      Var("default_src") + "/trunk/deps/third_party/lighttpd@33727",
 
     # Chrome Frame related deps
     "src/third_party/xulrunner-sdk":
-      "/trunk/deps/third_party/xulrunner-sdk@119756",
+      Var("default_src") + "/trunk/deps/third_party/xulrunner-sdk@119756",
     "src/chrome_frame/tools/test/reference_build/chrome_win":
-      "/trunk/deps/reference_builds/chrome_win@89574",
+      Var("default_src") + "/trunk/deps/reference_builds/chrome_win@89574",
 
     # Parses Windows PE/COFF executable format.
     "src/third_party/pefile":
@@ -347,10 +351,10 @@ deps_os = {
 
     # NSS, for SSLClientSocketNSS.
     "src/third_party/nss":
-      "/trunk/deps/third_party/nss@" + Var("nss_revision"),
+      Var("default_src") + "/trunk/deps/third_party/nss@" + Var("nss_revision"),
 
     "src/third_party/swig/win":
-      "/trunk/deps/third_party/swig/win@" + Var("swig_revision"),
+      Var("default_src") + "/trunk/deps/third_party/swig/win@" + Var("swig_revision"),
 
     # GNU binutils assembler for x86-32.
     "src/third_party/gnu_binutils":
@@ -363,7 +367,7 @@ deps_os = {
 
     # Dependencies used by libjpeg-turbo
     "src/third_party/yasm/binaries":
-      "/trunk/deps/third_party/yasm/binaries@74228",
+      Var("default_src") + "/trunk/deps/third_party/yasm/binaries@74228",
 
     # Binary level profile guided optimizations. This points to the
     # latest release binaries for the toolchain.
@@ -372,7 +376,7 @@ deps_os = {
 
     # Binaries for nacl sdk.
     "src/third_party/nacl_sdk_binaries":
-      "/trunk/deps/third_party/nacl_sdk_binaries@111576",
+      Var("default_src") + "/trunk/deps/third_party/nacl_sdk_binaries@111576",
   },
   "ios": {
     "src/third_party/GTM":
@@ -380,11 +384,11 @@ deps_os = {
       Var("gtm_revision"),
 
     "src/third_party/nss":
-      "/trunk/deps/third_party/nss@" + Var("nss_revision"),
+      Var("default_src") + "/trunk/deps/third_party/nss@" + Var("nss_revision"),
 
     # class-dump utility to generate header files for undocumented SDKs
     "src/testing/iossim/third_party/class-dump":
-      "/trunk/deps/third_party/class-dump@147231",
+      Var("default_src") + "/trunk/deps/third_party/class-dump@147231",
 
     # Code that's not needed due to not building everything (especially WebKit).
     "src/build/util/support": None,
@@ -460,7 +464,7 @@ deps_os = {
   },
   "mac": {
     "src/chrome/tools/test/reference_build/chrome_mac":
-      "/trunk/deps/reference_builds/chrome_mac@137727",
+      Var("default_src") + "/trunk/deps/reference_builds/chrome_mac@137727",
 
     "src/third_party/GTM":
       (Var("googlecode_url") % "google-toolbox-for-mac") + "/trunk@" +
@@ -468,44 +472,44 @@ deps_os = {
     "src/third_party/pdfsqueeze":
       (Var("googlecode_url") % "pdfsqueeze") + "/trunk@5",
     "src/third_party/lighttpd":
-      "/trunk/deps/third_party/lighttpd@33737",
+      Var("default_src") + "/trunk/deps/third_party/lighttpd@33737",
 
     "src/third_party/swig/mac":
-      "/trunk/deps/third_party/swig/mac@" + Var("swig_revision"),
+      Var("default_src") + "/trunk/deps/third_party/swig/mac@" + Var("swig_revision"),
 
     # NSS, for SSLClientSocketNSS.
     "src/third_party/nss":
-      "/trunk/deps/third_party/nss@" + Var("nss_revision"),
+      Var("default_src") + "/trunk/deps/third_party/nss@" + Var("nss_revision"),
 
     "src/chrome/installer/mac/third_party/xz/xz":
-      "/trunk/deps/third_party/xz@87706",
+      Var("default_src") + "/trunk/deps/third_party/xz@87706",
   },
   "unix": {
     # Linux, really.
     "src/chrome/tools/test/reference_build/chrome_linux":
-      "/trunk/deps/reference_builds/chrome_linux@137712",
+      Var("default_src") + "/trunk/deps/reference_builds/chrome_linux@137712",
 
     "src/third_party/xdg-utils":
-      "/trunk/deps/third_party/xdg-utils@149334",
+      Var("default_src") + "/trunk/deps/third_party/xdg-utils@149334",
 
     "src/third_party/swig/linux":
-      "/trunk/deps/third_party/swig/linux@" + Var("swig_revision"),
+      Var("default_src") + "/trunk/deps/third_party/swig/linux@" + Var("swig_revision"),
 
     "src/third_party/lss":
       ((Var("googlecode_url") % "linux-syscall-support") + "/trunk/lss@" +
        Var("lss_revision")),
 
     "src/third_party/openssl":
-      "/trunk/deps/third_party/openssl@130472",
+      Var("default_src") + "/trunk/deps/third_party/openssl@130472",
 
-    "src/third_party/WebKit/Tools/gdb":
-      Var("webkit_trunk") + "/Tools/gdb@" + Var("webkit_revision"),
+    #"src/third_party/WebKit/Tools/gdb":
+    #  Var("webkit_trunk") + "/Tools/gdb@" + Var("webkit_revision"),
 
     "src/third_party/gold":
-      "/trunk/deps/third_party/gold@149858",
+      Var("default_src") + "/trunk/deps/third_party/gold@149858",
 
     "src/third_party/libmtp":
-      "/trunk/deps/third_party/libmtp@149713",
+      Var("default_src") + "/trunk/deps/third_party/libmtp@149713",
 
     # For Chromium OS.
     "src/third_party/cros_system_api":
@@ -518,7 +522,7 @@ deps_os = {
       "@1f74e4e7ad3ca4163b4578fc30da26a165dd55e7",
 
     "src/third_party/aosp":
-      "/trunk/deps/third_party/aosp@148330",
+      Var("default_src") + "/trunk/deps/third_party/aosp@148330",
 
     "src/third_party/android_tools":
       Var("chromium_git") + "/android_tools.git" +
