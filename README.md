@@ -7,6 +7,19 @@ This repository based on Chromium 18 branch.
 
 http://src.chromium.org/svn/branches/1025/src @121524
 
+
+# How to use
+If you want to just use Readium Chromium, you can download Mac binary from the following URL.
+
+We currently develop chromium on Mac.
+For Windows or Linux users, you may be able to build from source, but we don't test it.
+
+Double click donwloaded "Chromium.zip" in Finder to extract the file.
+
+Double click "Chromium" in Finder to execute the binary.
+
+Go to http://readium.org/ and Click "+ ADD TO CHROME".
+
 # How to get source
 gclient config ssh://git@github.com/readium/Readium-Chromium.git --name src
 
