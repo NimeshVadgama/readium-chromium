@@ -7,6 +7,9 @@ This repository based on Chromium 18 branch.
 
 http://src.chromium.org/svn/branches/1025/src @121524
 
+# Warning
+
+Don't use this chromium to read untrusted web site or epub because this chromium is old and some security fix may not be applied. 
 
 # How to use
 If you want to just use Readium Chromium, you can download Mac binary from the following URL.
