@@ -37,7 +37,7 @@ const char kChromeUIExtensionInfoURL[] = "chrome://extension-info/";
 const char kChromeUIExtensionsFrameURL[] = "chrome://extensions-frame/";
 const char kChromeUIExtensionsURL[] = "chrome://extensions/";
 const char kChromeUIFaviconURL[] = "chrome://favicon/";
-const char kChromeUIFeedbackURL[] = "chrome://feedback/";
+const char kChromeUIFeedbackURL[] = "https://github.com/readium/Readium-Chromium/issues";
 const char kChromeUIFlagsURL[] = "chrome://flags/";
 const char kChromeUIFlashURL[] = "chrome://flash/";
 const char kChromeUIHelpFrameURL[] = "chrome://help-frame/";
@@ -343,7 +343,7 @@ const char kChromeHelpViaWebUIURL[] =
     "https://support.google.com/chromeos/?p=help&ctx=settings";
 #endif  // defined(OFFICIAL_BUILD
 #else
-    "https://support.google.com/chrome/?p=help&ctx=settings";
+    "https://github.com/readium/Readium-Chromium/blob/master/FAQ.md";
 #endif  // defined(OS_CHROMEOS)
 
 const char kChromeSyncLearnMoreURL[] =

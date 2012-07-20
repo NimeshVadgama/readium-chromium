@@ -9834,7 +9834,7 @@ Would you like to start <ph name="CONTROL_PANEL_APPLET_NAME">$1<ex>Add/Remove Pr
       </if>
       <if expr="not pp_ifdef('chromeos')">
         <message name="IDS_ABOUT_PRODUCT_DESCRIPTION" desc="The text label describing the Chrome browser">
-          A web browser built for speed, simplicity, and security
+          EPUB 3 reader based on Chromium web browser.
         </message>
       </if>
       <message name="IDS_ABOUT_PRODUCT_VERSION" desc="The text label describing the version of the browser">
