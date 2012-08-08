@@ -12,9 +12,9 @@
     'version_py_path': '<(version_py_path)',
     'version_path': '<(version_path)',
     'version_full':
-        '<!(python <(version_py_path) -f <(version_path) -t "@MAJOR@.@MINOR@.@BUILD@.@PATCH@")',
+        '<!(python <(version_py_path) -f <(version_path) -t "@MAJOR@.@MINOR@.@BUILD@.@PATCH@" -e "PATCH=PATCH.split()[0]")',
     'version_mac_dylib':
-        '<!(python <(version_py_path) -f <(version_path) -t "@BUILD@.@PATCH_HI@.@PATCH_LO@" -e "PATCH_HI=int(PATCH)/256" -e "PATCH_LO=int(PATCH)%256")',
+        '<!(python <(version_py_path) -f <(version_path) -t "@BUILD@.@PATCH_HI@.@PATCH_LO@" -e "PATCH_HI=int(PATCH.split()[0])/256" -e "PATCH_LO=int(PATCH.split()[0])%256")',
 
     # Define the common dependencies that contain all the actual
     # Chromium functionality.  This list gets pulled in below by
