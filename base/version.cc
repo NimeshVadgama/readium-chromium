@@ -20,8 +20,10 @@ namespace {
 // parsed successfully, false otherwise.
 bool ParseVersionNumbers(const std::string& version_str,
                          std::vector<uint16>* parsed) {
+  std::vector<std::string> spaces;
+  base::SplitString(version_str, ' ', &spaces);
   std::vector<std::string> numbers;
-  base::SplitString(version_str, '.', &numbers);
+  base::SplitString(spaces[0], '.', &numbers);
   if (numbers.empty())
     return false;
 
