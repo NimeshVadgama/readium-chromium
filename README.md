@@ -68,24 +68,43 @@ If you want to update your forked repository, please follow the following guide.
 
 * Fork Readium-skia-src and Readium-skia-include on github.
 * Update your forked chromium and readium repository like following.
+
 > cd my-readium-chromium/src
+
 > git checkout -b master-save master    # backup your old master
+
 > git push origin master-save           # I supporse your github is origin
+
 > git fetch readium                     # I supporse readium github is readium
+
 > git branch -d master                  # delete old master
+
 > git checkout -b master readium/master
+
 > git push -f origin master             # WARNING!! This make your repository be not able to be pulled from other repository!
+
 > emacs DEPS                            # Edit repository position like first checkout
+
 > git commit -a
+
 > git push origin master                # Your forked chromium repository must have DEPS which point to your forked repositories.
+
 > cd third_party/WebKit
+
 > git checkout -b master-save master    # backup your old master
+
 > git push origin master-save           # I supporse your github is origin
+
 > git fetch readium                     # I supporse readium github is readium
+
 > git branch -d master                  # delete old master
+
 > git checkout -b master readium/master
+
 > git push -f origin master             # WARNING!! This make your repository be not able to be pulled from other repository!
+
 > cd ../../../
+
 > gclient sync
 
 If you want to restore your changes, please cherry-pick from master-save or your branch.
