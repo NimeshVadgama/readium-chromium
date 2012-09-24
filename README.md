@@ -1,9 +1,9 @@
 Readium-Chromium
 ===============
 
-modified Chromium to use Readium-WebKit.
+Readium-Chromium modifies Chromium to use Readium-WebKit.
 
-This repository based on Chromium 22 branch.
+This repository is based on Chromium 22 branch.
 
 http://src.chromium.org/svn/branches/1229_12 @ 152690
 
@@ -12,11 +12,12 @@ http://src.chromium.org/svn/branches/1229_12 @ 152690
 Don't use this chromium to read untrusted web site or epub because this chromium is old and some security fix may not be applied. 
 
 # Release Note
-Please read following URL.
+Please refer to the following URL.
+
 https://github.com/readium/Readium-Chromium/blob/master/ReleaseNote.md
 
-# How to use
-If you want to just use Readium Chromium, you can download Mac binary from the following URL.
+# How to use a binary release
+If you just want to use Readium Chromium, you can download Mac binary from the following URL.
 
 http://github.readium.org/releases/custom_chromium/Chromium-1025-2012-05-17.zip
 
@@ -62,9 +63,9 @@ If you want to fix our custom chromium, please do following.
 > gclient sync
 
 # About rebase
-We rebased Chromium version from 18 to 22.
-This change master's history and you cannot pull or gclient sync from original source.
-If you want to update your forked repository, please follow the following guide.
+We rebased Chromium version from 18 to 22 on Aug 29, 2012.
+This changes master's history and you cannot pull or gclient sync from original source, if you had got Readium Chromium code before Aug 29, 2012.
+If you want to update your forked repository, please follow the following guide
 
 * Fork Readium-skia-src and Readium-skia-include on github.
 * Update your forked chromium and readium repository like following.
