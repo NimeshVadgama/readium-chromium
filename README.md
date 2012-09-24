@@ -11,6 +11,10 @@ http://src.chromium.org/svn/branches/1229_12 @ 152690
 
 Don't use this chromium to read untrusted web site or epub because this chromium is old and some security fix may not be applied. 
 
+# Release Note
+Please read following URL.
+https://github.com/readium/Readium-Chromium/blob/master/ReleaseNote.md
+
 # How to use
 If you want to just use Readium Chromium, you can download Mac binary from the following URL.
 
