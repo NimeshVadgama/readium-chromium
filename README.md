@@ -1,7 +1,7 @@
 Readium-Chromium
 ===============
 
-Readium-Chromium modifies Chromium to use Readium-WebKit.
+Readium-Chromium is a customized Chromium using Readium-WebKit.
 
 This repository is based on Chromium 22 branch.
 
@@ -67,7 +67,7 @@ If you want to fix our custom chromium, please do following.
 # About rebase
 We rebased Chromium version from 18 to 22 on Aug 29, 2012.
 This changes master's history and you cannot pull or gclient sync from original source, if you had got Readium Chromium code before Aug 29, 2012.
-If you want to update your forked repository, please follow the following guide
+If you want to update your forked repository, please follow the following guide.
 
 * Fork Readium-skia-src and Readium-skia-include on github.
 * Update your forked chromium and readium repository like following.
