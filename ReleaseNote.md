@@ -1,6 +1,25 @@
 Readium-Chromium Release Note
 ===============
 
+# Release 2
+This release is based on Chromium 22.
+
+## **Known Issue**
+This chromium cannot show bold character if the character have no bold font.
+
+This is an issue of Chromium 22.
+
+## Feature Changes
+* [Implement Vertical Orientations of text-orientation: mixed-right](https://github.com/readium/Readium-WebKit/issues/13)
+
+## Bug Fixes
+* [Fix float block's logical top margin is illegal in vertical writing mode.](https://github.com/readium/Readium-WebKit/issues/10)
+* [Fix ruby text is incorrectly positioned when its writing-mode is changed to vertical after layout is done](https://github.com/readium/Readium-WebKit/issues/11)
+
+## Reverted Fixes
+Following fixes are reverted from previous release
+* [Small kanas and prolonged marks become characters not starting a line.](https://github.com/readium/Readium-ICU/issues/2)
+
 # Release 1
 
 This release is based on Chromium 18.
