@@ -28,7 +28,7 @@ For Windows or Linux users, you may be able to build from source, but we don't t
 
 Double click donwloaded "ReadiumChromium-Release2-2012-09-24.zip" in Finder to extract the file.
 
-Double click "Chromium" in Finder to execute the binary.
+Double click "Readium Chromium" in Finder to execute the binary.
 
 Go to http://readium.org/ and Click "+ ADD TO CHROME".
 
