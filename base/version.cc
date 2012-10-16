@@ -22,6 +22,8 @@ bool ParseVersionNumbers(const std::string& version_str,
                          std::vector<uint16>* parsed) {
   std::vector<std::string> spaces;
   base::SplitString(version_str, ' ', &spaces);
+  if (spaces.empty())
+    return false;
   std::vector<std::string> numbers;
   base::SplitString(spaces[0], '.', &numbers);
   if (numbers.empty())
