@@ -19,7 +19,7 @@ https://github.com/readium/Readium-Chromium/blob/master/ReleaseNote.md
 # How to use a binary release
 If you just want to use Readium Chromium, you can download Mac binary from the following URL.
 
-http://github.readium.org/releases/custom_chromium/ReadiumChromium-Release2-2012-09-24.zip
+http://github.readium.org/releases/custom_chromium/ReadiumChromium-Release201-2012-10-22.zip
 
 Old releases are [here](https://github.com/readium/Readium-Chromium/blob/master/OldRelease.md).
 

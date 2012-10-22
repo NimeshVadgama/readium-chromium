@@ -1,6 +1,17 @@
 Readium-Chromium Release Note
 ===============
 
+# Release 2.0.1
+This release is based on Chromium 22.
+
+## **Known Issue**
+This chromium cannot show bold character, when you change fonts and the font does not have a bold version.
+
+This is an issue of Chromium 22.
+
+## Bug Fixes
+* [crashes frequently](https://github.com/readium/Readium-Chromium/issues/7)
+
 # Release 2
 This release is based on Chromium 22.
 
