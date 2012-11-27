@@ -14,6 +14,7 @@
 #include "base/file_util.h"
 #include "base/metrics/field_trial.h"
 #include "base/string_piece.h"
+#include "base/string_split.h"
 #include "base/stringprintf.h"
 #include "base/sys_info.h"
 #include "base/values.h"
@@ -44,12 +45,18 @@ namespace {
 // Strip out the non-digital info; if after that, we get an empty string,
 // return "0".
 std::string ProcessVersionString(const std::string& raw_string) {
+  std::vector<std::string> spaces;
+  base::SplitString(raw_string, ' ', &spaces);
+  if (spaces.empty())
+    return "0";
+  std::string original_version = spaces[0];
+
   const std::string valid_set = "0123456789.";
-  size_t start_pos = raw_string.find_first_of(valid_set);
+  size_t start_pos = original_version.find_first_of(valid_set);
   if (start_pos == std::string::npos)
     return "0";
-  size_t end_pos = raw_string.find_first_not_of(raw_string, start_pos);
-  std::string version_string = raw_string.substr(
+  size_t end_pos = original_version.find_first_not_of(original_version, start_pos);
+  std::string version_string = original_version.substr(
       start_pos, end_pos - start_pos);
   if (version_string.empty())
     return "0";
