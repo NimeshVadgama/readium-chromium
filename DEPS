@@ -110,7 +110,7 @@ deps = {
     (Var("googlecode_url") % "gyp") + "/trunk@1525",
 
   "src/tools/swarm_client":
-    "/trunk/tools/swarm_client@163381",
+    Var("default_src") + "/trunk/tools/swarm_client@163381",
 
   "src/v8":
     (Var("googlecode_url") % "v8") + "/trunk@" + Var("v8_revision"),
@@ -324,7 +324,7 @@ deps = {
     (Var("googlecode_url") % "pywebsocket") + "/trunk/src@662",
 
   "src/third_party/opus/src":
-    "/trunk/deps/third_party/opus@164159",
+    Var("default_src") + "/trunk/deps/third_party/opus@164159",
 }
 
 
