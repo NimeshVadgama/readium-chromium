@@ -130,13 +130,13 @@ deps = {
     Var("sfntly_revision"),
 
   "src/third_party/skia/src":
-    Var("skia_src_git"),
+    (Var("googlecode_url") % "skia") + "/trunk/src@" + Var("skia_revision"),
 
   "src/third_party/skia/gyp":
     (Var("googlecode_url") % "skia") + "/trunk/gyp@" + Var("skia_revision"),
 
   "src/third_party/skia/include":
-    Var("skia_include_git"),
+    (Var("googlecode_url") % "skia") + "/trunk/include@" + Var("skia_revision"),
 
   #"src/third_party/WebKit/LayoutTests":
   #  Var("webkit_trunk") + "/LayoutTests@" + Var("webkit_revision"),
