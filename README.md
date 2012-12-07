@@ -3,9 +3,9 @@ Readium-Chromium
 
 Readium-Chromium is a customized Chromium using Readium-WebKit.
 
-This repository is based on Chromium 22 branch.
+This repository is based on Chromium 24 branch.
 
-http://src.chromium.org/svn/branches/1229_12 @ 152690
+http://src.chromium.org/svn/branches/1312 @ r169235
 
 # Warning
 
@@ -26,7 +26,7 @@ Old releases are [here](https://github.com/readium/Readium-Chromium/blob/master/
 We currently develop chromium on Mac.
 For Windows or Linux users, you may be able to build from source, but we don't test it.
 
-Double click donwloaded "ReadiumChromium-Release2-2012-09-24.zip" in Finder to extract the file.
+Double click donwloaded "ReadiumChromium-Release201-2012-10-22.zip" in Finder to extract the file.
 
 Double click "Readium Chromium" in Finder to execute the binary.
 
@@ -65,8 +65,8 @@ If you want to fix our custom chromium, please do following.
 > gclient sync
 
 # About rebase
-We rebased Chromium version from 18 to 22 on Aug 29, 2012.
-This changes master's history and you cannot pull or gclient sync from original source, if you had got Readium Chromium code before Aug 29, 2012.
+We rebased Chromium version from 22 to 24 on Dec 7, 2012.
+This changes master's history and you cannot pull or gclient sync from original source, if you had got Readium Chromium code before Dec 7, 2012.
 If you want to update your forked repository, please follow the following guide.
 
 * Fork Readium-skia-src and Readium-skia-include on github.
