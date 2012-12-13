@@ -1,6 +1,36 @@
 Readium-Chromium Release Note
 ===============
 
+# Release 3
+This release is based on Chromium 24.
+
+## **Known Issue**
+* This chromium cannot show bold character, when you change fonts and the font does not have a bold version.
+* Japanese character is offset to top-right in vertical writing mode on Mountain Lion.
+
+Above are issues of Chromium 24.
+
+## Feature Changes
+* [Implement hanging-punctuation: allow-end](https://github.com/readium/Readium-WebKit/issues/24)
+* [text-combine falls back to none rather than scale when wider than 1.1em](https://github.com/readium/Readium-WebKit/issues/15) (text-combine-mode: auto behavior)
+
+## Bug Fixes
+* [When the 1st row step over pages, all rows are expanded.](https://github.com/readium/Readium-WebKit/issues/26)
+* [table-caption stride over pages](https://github.com/readium/Readium-WebKit/issues/25)
+* [WebKit should use vertical glyph for upright U+0x2026 HORIZONTAL ELLIPSIS](https://github.com/readium/Readium-WebKit/issues/22)
+* [not upright: full width equals sign](https://github.com/readium/Readium-WebKit/issues/21)
+* [(readium/readium #79)Link elements containing ruby are not functioning in vertical-writing](https://github.com/readium/Readium-WebKit/issues/20)
+* [(readium/readium #76)surrogate pair](https://github.com/readium/Readium-WebKit/issues/19)
+* [Uninitialized text decoration color is propagated to ruby text.](https://github.com/readium/Readium-WebKit/issues/14)
+* [If there is no ancestor which have specified height, image percent height should be ignored when calculate auto width.](https://github.com/readium/Readium-WebKit/issues/16)
+
+## Reverted Fixes
+
+Revert the following patches not to break English contents.
+* [Fix Japanese justification](https://github.com/readium/Readium-WebKit/issues/4)
+* [Line break between inseparable characters.](https://github.com/readium/Readium-WebKit/issues/6)
+
+
 # Release 2.0.1
 This release is based on Chromium 22.
 
