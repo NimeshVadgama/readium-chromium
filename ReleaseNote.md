@@ -26,7 +26,7 @@ Above are issues of Chromium 24.
 
 ## Reverted Fixes
 
-Remove added justification characters by Readium Custom Chromium not to break English contents.
+Remove additional justification characters not to break English contents.
 * [Fix japanese justification](https://github.com/readium/Readium-WebKit/issues/4)
 * [Line break between inseparable characters.](https://github.com/readium/Readium-WebKit/issues/6)
 
