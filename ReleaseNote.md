@@ -8,7 +8,7 @@ This release is based on Chromium 24.
 * This chromium cannot show bold character, when you change fonts and the font does not have a bold version.
 * Japanese character is offseted to top-right in vertical writing mode on Mountain Lion.
 
-This is an issue of Chromium 24.
+Above are issues of Chromium 24.
 
 ## Feature Changes
 * [Implement hanging-punctuation: allow-end](https://github.com/readium/Readium-WebKit/issues/24)
@@ -25,6 +25,8 @@ This is an issue of Chromium 24.
 * [If there is no ancestor which have specified height, image percent height should be ignored when calclate auto width.](https://github.com/readium/Readium-WebKit/issues/16)
 
 ## Reverted Fixes
+
+Remove added justification characters by Readium Custom Chromium not to break English contents.
 * [Fix japanese justification](https://github.com/readium/Readium-WebKit/issues/4)
 * [Line break between inseparable characters.](https://github.com/readium/Readium-WebKit/issues/6)
 
